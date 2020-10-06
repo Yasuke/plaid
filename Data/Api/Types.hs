@@ -469,7 +469,7 @@ data PlaidTransactionsGetResponse =
 
 makeLenses ''PlaidTransactionsGetResponse
 
-$(deriveToJSON (defaultOptions { fieldLabelModifier = camel . drop 29 }) ''PlaidTransactionsGetResponse)
+$(deriveToJSON (defaultOptions { fieldLabelModifier = camel . drop 18 }) ''PlaidTransactionsGetResponse)
 
 instance FromJSON PlaidTransactionsGetResponse where
   parseJSON = withObject "PlaidTransactionsGetResponse" $ \o ->
@@ -608,9 +608,9 @@ $(deriveJSON (defaultOptions { fieldLabelModifier = quietSnake . drop 9 }) ''Acc
 
 data PlaidIdentityGetResponse =
   PlaidIdentityGetResponse
-    { _plaidIdentityGetResponseAccounts :: [Accounts]
-    , _plaidIdentityGetItem             :: Item
-    , _plaidIdentityGetRequestId        :: Text
+    { _plaidIdentityGetResponseAccounts  :: [Accounts]
+    , _plaidIdentityGetResponseItem      :: Item
+    , _plaidIdentityGetResponseRequestId :: Text
     } deriving (Eq, Show)
 
 makeLenses ''PlaidIdentityGetResponse
